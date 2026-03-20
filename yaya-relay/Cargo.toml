@@ -1,0 +1,22 @@
+[package]
+name = "yaya-relay"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Yaya QUIC relay server for NAT traversal"
+
+[[bin]]
+name = "yaya-relay"
+path = "src/main.rs"
+
+[dependencies]
+tokio.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+anyhow.workspace = true
+
+# QUIC
+quinn = "0.11"
+rustls = { version = "0.23", default-features = false, features = ["ring"] }
+rcgen = "0.13"
